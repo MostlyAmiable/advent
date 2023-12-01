@@ -1,5 +1,3 @@
-#![allow(unused)]
-
 fn main() {
     part_one();
     part_two();
@@ -7,12 +5,12 @@ fn main() {
 
 fn part_one() {
     let calories = input();
-    dbg!(calories[calories.len() - 1]);
+    dbg!(calories[0]);
 }
 
 fn part_two() {
     let calories = input();
-    dbg!(calories[calories.len() - 3..calories.len()].into_iter().sum::<usize>());
+    dbg!(calories[..3].into_iter().sum::<usize>());
 }
 
 fn input() -> Vec<usize> {
@@ -20,6 +18,6 @@ fn input() -> Vec<usize> {
         .split("\n\n")
         .map(|s| s.lines().map(|s| s.parse::<usize>().unwrap()).sum())
         .collect();
-    calories.sort_unstable();
+    calories.sort_unstable_by(|a, b| b.cmp(a)); // Sort descending
     calories
 }
