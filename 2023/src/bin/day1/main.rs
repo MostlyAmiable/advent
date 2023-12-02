@@ -30,9 +30,8 @@ fn part_two(lines: impl Iterator<Item = &'static str>) -> usize {
 }
 
 fn parse_digit(s: &[u8]) -> Option<usize> {
-    const DIGITS: [&str; 10] = [
-        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-    ];
+    const DIGITS: [&str; 10] =
+        ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
     if s[0].is_ascii_digit() {
         Some((s[0] - b'0') as usize)
